@@ -1,10 +1,11 @@
 import React from 'react';
+import SearchContainer from '../containers/SearchContainer';
 
 class App extends React.Component {
   render(){
     return (
       <div>
-        Content goes here
+        <SearchContainer />
       </div>
     )
   }

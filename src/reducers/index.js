@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import placeholder from './placeholder';
+import search from './search';
 
 export default combineReducers({
-  placeholder
+  search
 });
