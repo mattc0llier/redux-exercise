@@ -1,5 +1,6 @@
 function search(state = {
-    searchTerm: ''
+    searchTerm: '',
+    characters: []
 }, action){
   switch (action.type) {
 
@@ -8,6 +9,13 @@ function search(state = {
       searchTerm: action.searchTerm
     });
     return searchTermUpdated;
+
+    case 'RECEIVE_CHARACTERS':
+    const characterResult = Object.assign ({}, state, {
+      characters: action.characters
+
+    })
+    return characterResult;
 
     default:
       return state

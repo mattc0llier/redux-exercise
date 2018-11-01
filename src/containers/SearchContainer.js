@@ -1,22 +1,27 @@
 import Search from '../components/Search'
 import { connect } from 'react-redux'
-import { updateSearchTerm, submitSearch } from '../actions'
+import { updateSearchTerm, submitSearch, fetchCharacter } from '../actions'
 
 
 const mapStateToProps = state =>{
   return{
-    searchTerm: state.search.searchTerm
+    searchTerm: state.search.searchTerm,
+    characters: state.search.characters
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     handleChange: event => {
-      console.log(event.target.value);
       dispatch(updateSearchTerm(event.target.value))
     },
 
-    handleSubmit: () => dispatch(submitSearch(event.target.value))
+
+    handleSubmit: (event, searchTerm) => {
+      event.preventDefault();
+      dispatch(fetchCharacter(searchTerm))
+    }
+
   }
 }
 
